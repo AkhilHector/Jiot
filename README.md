@@ -83,9 +83,9 @@ sudo dd bs=8M if= /to/the/dir/where/the/file/is of= /to/the/SD/card/mountpoint
 
 > COMMENT :
 
-- 
-
-
+- It is to be noted that we can have the possibility of writing a HTTP middleware which will just suffice the purpose of our application and instead of using a third party routing and HTTP middleware like `express` we can actually pre-define the set of routes that will have a GET/POST end point and accordingly we can reply with a response.
+- We have the possibility of matching the entered URL by regular expression, so if an unknown route is being requested then we can prompt a 404.
+- By using the core modules we can simplify the application with respect to its dependence on third party modules and since the usage of core modules can help in building cleaner and faster looking applications.
 
 
 
