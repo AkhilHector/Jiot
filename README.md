@@ -65,5 +65,30 @@ sudo dd bs=8M if= /to/the/dir/where/the/file/is of= /to/the/SD/card/mountpoint
 ```
 - If git is installed you can traverse this codebase and run the script `install.sh` in order to install the required software dependencies for our purpose, else download git first using the command `sudo apt-get install git` and then follow the perform what is mentioned in the first part of this point.
 - Lastly writing an media server API which has GET, POST, DELETE, OPTIONS endpoints and is talking to the physical devices is needed.
+- Effectively cache and content and oversee the capability of the server to use the HTTP 304.
+- Support different mime-types and fix the URI in such a way that when an unknown mime-type is being opened the media file should not automatically download.
+
+## Slide - 3
+
+### Technology Javascript (Node.js)
+
+- With the help of the server side development language Node.Js we can really explore the poosibilty of creating this.
+- For Node we require these core packages :
+    + http
+    + net
+    + fs
+    + varnish
+    Although it is very much agreeable to the fact of writing code my making the most of the node's core modules varnish is a very good option for providing a caching mechanism.
+- Apart from varnish all the above mentioned modules are core modules of the language [Node.Js]
+
+> COMMENT :
+
+- 
+
+
+
+
+
+
 
 
