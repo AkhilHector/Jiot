@@ -87,8 +87,18 @@ sudo dd bs=8M if= /to/the/dir/where/the/file/is of= /to/the/SD/card/mountpoint
 - We have the possibility of matching the entered URL by regular expression, so if an unknown route is being requested then we can prompt a 404.
 - By using the core modules we can simplify the application with respect to its dependence on third party modules and since the usage of core modules can help in building cleaner and faster looking applications.
 
+## Slide - 4
 
+### Serving the Content
 
+- For designing a router we can simplify the job by writing a function handler, so the serving mechanism would be a function handler that takes request and response as a parameter.
+- Define the file/media which is to be addressed at a particular route and properly write the end point linked to the route.
+- If routes are to be dynamically addressed write a regular expression match to the function handler in order to match the file name captured by the end point and serve it.
 
+> COMMENT :
+
+- Although this is more about code conventions and things to lookout for when writing/developing the application there are more insights into the specifics which are mentioned above.
+- The first phase of the project is to deliver API calls which are normal, i.e a request is sent to the API and depending upon the request the file/media is being served.
+- In order to write regular expression match for the request made to the API router, we have to use the module `net` which gives the application an ability to match the requests based on a regex pattern.
 
 
