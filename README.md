@@ -101,4 +101,13 @@ sudo dd bs=8M if= /to/the/dir/where/the/file/is of= /to/the/SD/card/mountpoint
 - The first phase of the project is to deliver API calls which are normal, i.e a request is sent to the API and depending upon the request the file/media is being served.
 - In order to write regular expression match for the request made to the API router, we have to use the module `net` which gives the application an ability to match the requests based on a regex pattern.
 
+## Slide - 5
+
+### The Gotchas
+
+- Defining the headers explicitly is actually a very good notion whilst designing the media server router.
+- Note the point that you should not count on node either for processing unknown mime-types or for defining headers.
+- So the primary problem which might occur will be when an unknown mime-type is being opened, automatically the file is being prompted to download. Since the project is mostly dependent on the browser and it deals with media/files there is a way we can address to solve the problem of auto download.
+- Have a `.csv` file which contains all the supported set of mime-types which you wish to offer and depending on the request that is made to the API strip the mime-type of each request and check whether it is supported by your router, if yes then go display else, make sure you prompt a 404 or a similar Sorry page addressing the client.
+
 
