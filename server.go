@@ -3,26 +3,22 @@ package main
 import (
     "log"
     "time"
+    "flag"
     "net/http"
-    "io/ioutil"
 )
 
-func homePageHandler(rw http.ResponseWriter, r *http.Request) {
-    rw.Header().Set("Content-Type", "text/plain")
-    data, err:= ioutil.ReadFile("robots.txt")
-    if err != nil {
-        log.Fatal(err)
-    }
-    rw.Write(data)
-}
-
 func main() {
-    http.HandleFunc("/", homePageHandler)
+    port      := flag.String("p", "6060", "the port to serve on")
+    directory := flag.String("d", ".", "the directory of static file to host")
+    flag.Parse()
+
+    http.Handle("/", http.FileServer(http.Dir(*directory)))
     server:= &http.Server{
-        Addr: ":6060",
+        Addr: ":" + *port,
         ReadTimeout: 10 * time.Second,
         WriteTimeout: 10 * time.Second,
     }
     log.Println("Media Server Started...")
+    log.Printf("Serving the directory")
     server.ListenAndServe()
 }
